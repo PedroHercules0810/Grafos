@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include"aeroportos.c"
 int main()
 {
-
+    int aeroporto = 2939;
+    struct Grafo* grafo = criaGrafo(aeroporto);
     FILE *f;
-    char *teste = (char*)malloc(sizeof(char));
-    char *teste2 = (char*)malloc(sizeof(char));
+    int teste;
+    int teste2;
     f = fopen("openflights.csv", "r");
     if (f == NULL)
     {
@@ -13,14 +15,10 @@ int main()
         return 1;
     }
 
-    while(fscanf(f,"%99[^;];%99[^;];%*[^\n]",teste,teste2) == 2){
-    printf("%s;", teste);
-    printf("%s", teste2);
-
+    while (fscanf(f, "%d;%d;", &teste, &teste2) == 2) {
+    addAresta( grafo, teste, teste2);
     }
-    
-
-
+    printGrafo(grafo);
     fclose(f);
 
     return 0;
