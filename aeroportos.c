@@ -47,7 +47,7 @@ void addAresta(struct Grafo* grafo, int origem, int destino) {
 void printGrafo(struct Grafo* grafo) {
     for (int a = 0; a < grafo->aeroporto; a++) {
         struct No* temp = grafo->aresta[a];
-        printf("Arestas do aeroporto %d\n", a);
+        printf("Rotas do aeroporto %d\n", a);
         while (temp) {
             printf(" -> %d", temp->vizinho);
             temp = temp->prox;
@@ -63,7 +63,7 @@ void printArestasAeroporto(struct Grafo* grafo, int aeroportoDesejado) {
     }
 
     struct No* temp = grafo->aresta[aeroportoDesejado];
-    printf("Arestas do aeroporto %d:\n", aeroportoDesejado);
+    printf("Rotas do aeroporto %d:\n", aeroportoDesejado);
     while (temp) {
         printf(" -> %d", temp->vizinho);
         temp = temp->prox;

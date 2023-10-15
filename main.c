@@ -23,9 +23,9 @@ int main() {
 
     do {
         printf("\nMenu:\n");
-        printf("1. Imprimir todas as arestas\n");
-        printf("2. Verificar se dois aeroportos sao vizinhos\n");
-        printf("3. Imprimir as arestas de um aeroporto\n");
+        printf("1. Imprimir todas as rotas\n");
+        printf("2. Verificar se dois aeroportos tem rota entre si\n");
+        printf("3. Imprimir as rotas de um aeroporto\n");
         printf("4. Sair\n");
         printf("so existem 2939 aeroportos!");
         printf("Escolha uma opcao: ");
@@ -43,9 +43,9 @@ int main() {
                 scanf("%d", &aeroporto2);
 
                 if (saoVizinhos(grafo, aeroporto1, aeroporto2)) {
-                    printf("Os aeroportos %d e %d sao vizinhos.\n", aeroporto1, aeroporto2);
+                    printf("Os aeroportos %d e %d possuem rotas entre si.\n", aeroporto1, aeroporto2);
                 } else {
-                    printf("Os aeroportos %d e %d nao sao vizinhos.\n", aeroporto1, aeroporto2);
+                    printf("Os aeroportos %d e %d nao possuem rotas entre si.\n", aeroporto1, aeroporto2);
                 }
                 break;
             case 3:
