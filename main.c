@@ -6,7 +6,7 @@ int main()
     FILE *f;
     char *teste = (char*)malloc(sizeof(char));
     char *teste2 = (char*)malloc(sizeof(char));
-    f = fopen("arch.csv", "r");
+    f = fopen("openflights.csv", "r");
     if (f == NULL)
     {
         printf("erro ao abrir o arquivo");
