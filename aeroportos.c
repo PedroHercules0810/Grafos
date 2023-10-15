@@ -55,3 +55,35 @@ void printGrafo(struct Grafo* grafo) {
         printf("\n");
     }
 }
+
+void printArestasAeroporto(struct Grafo* grafo, int aeroportoDesejado) {
+    if (aeroportoDesejado < 0 || aeroportoDesejado >= grafo->aeroporto) {
+        printf("Aeroporto invalido\n");
+        return;
+    }
+
+    struct No* temp = grafo->aresta[aeroportoDesejado];
+    printf("Arestas do aeroporto %d:\n", aeroportoDesejado);
+    while (temp) {
+        printf(" -> %d", temp->vizinho);
+        temp = temp->prox;
+    }
+    printf("\n");
+}
+
+int saoVizinhos(struct Grafo* grafo, int aeroporto1, int aeroporto2) {
+    if (aeroporto1 < 0 || aeroporto1 >= grafo->aeroporto || aeroporto2 < 0 || aeroporto2 >= grafo->aeroporto) {
+        printf("Aeroportos invalidos\n");
+        return 0;
+    }
+
+    struct No* temp = grafo->aresta[aeroporto1];
+    while (temp) {
+        if (temp->vizinho == aeroporto2) {
+            return 1; 
+        }
+        temp = temp->prox;
+    }
+
+    return 0; 
+}
