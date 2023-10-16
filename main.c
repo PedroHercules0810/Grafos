@@ -42,7 +42,7 @@ int main() {
                 printf("Digite o numero do segundo aeroporto: ");
                 scanf("%d", &aeroporto2);
 
-                if (saoVizinhos(grafo, aeroporto1, aeroporto2)) {
+                if (rotasAeroportos(grafo, aeroporto1, aeroporto2)) {
                     printf("Os aeroportos %d e %d possuem rotas entre si.\n", aeroporto1, aeroporto2);
                 } else {
                     printf("Os aeroportos %d e %d nao possuem rotas entre si.\n", aeroporto1, aeroporto2);

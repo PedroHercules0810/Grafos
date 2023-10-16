@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include"aeroportos.h"
 struct No {
-    int vizinho;
+    int rota;
     struct No* prox;
 };
 struct Grafo {
@@ -10,9 +10,9 @@ struct Grafo {
     struct No** aresta;
 };
 
-struct No* criaNo(int vizinho) {
+struct No* criaNo(int rota) {
     struct No* newNode = (struct No*)malloc(sizeof(struct No));
-    newNode->vizinho = vizinho;
+    newNode->rota = rota;
     newNode->prox = NULL;
     return newNode;
 }
@@ -49,7 +49,7 @@ void printGrafo(struct Grafo* grafo) {
         struct No* temp = grafo->aresta[a];
         printf("Rotas do aeroporto %d\n", a);
         while (temp) {
-            printf(" -> %d", temp->vizinho);
+            printf(" -> %d", temp->rota);
             temp = temp->prox;
         }
         printf("\n");
@@ -65,13 +65,13 @@ void printArestasAeroporto(struct Grafo* grafo, int aeroportoDesejado) {
     struct No* temp = grafo->aresta[aeroportoDesejado];
     printf("Rotas do aeroporto %d:\n", aeroportoDesejado);
     while (temp) {
-        printf(" -> %d", temp->vizinho);
+        printf(" -> %d", temp->rota);
         temp = temp->prox;
     }
     printf("\n");
 }
 
-int saoVizinhos(struct Grafo* grafo, int aeroporto1, int aeroporto2) {
+int rotasAeroportos(struct Grafo* grafo, int aeroporto1, int aeroporto2) {
     if (aeroporto1 < 0 || aeroporto1 >= grafo->aeroporto || aeroporto2 < 0 || aeroporto2 >= grafo->aeroporto) {
         printf("Aeroportos invalidos\n");
         return 0;
@@ -79,7 +79,7 @@ int saoVizinhos(struct Grafo* grafo, int aeroporto1, int aeroporto2) {
 
     struct No* temp = grafo->aresta[aeroporto1];
     while (temp) {
-        if (temp->vizinho == aeroporto2) {
+        if (temp->rota == aeroporto2) {
             return 1; 
         }
         temp = temp->prox;
